@@ -1,0 +1,19 @@
+.authorDiv{
+    text-align: center;
+    padding: 1rem;
+
+}
+.authorIntroduction{
+    margin-top: .8rem;
+    font-size:.8rem;
+    color: #999;
+}
+.account{
+    background-color: rgba(137,229,226,.8);
+    margin-left: .5rem;
+    margin-right: .5rem;
+    line-height: 40px !important;
+}
+.account img, .account svg {
+    width: 80%;
+}

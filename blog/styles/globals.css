@@ -1,0 +1,201 @@
+body{
+  background-color: #f4f5f5;  
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+  
+  height: auto;
+}
+abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, html, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  cursor: url(../static/images/cursor.ico), auto;
+}
+
+.comm-left{
+  background-color: #FFF;
+  padding:.3rem;
+  border-radius: .3rem;
+  border:1px solid #eee;
+  margin-bottom: 16px;
+}
+.comm-right{
+  background-color: #FFF;
+  margin-left: .5rem;
+  padding:.3rem;
+  border-radius: .3rem;
+  border:1px solid #eee;
+  margin-bottom: 16px;
+}
+.comm-box{
+  background-color: #FFF;
+  margin-left: .5rem;
+  padding:.3rem;
+  border-radius: .3rem;
+}
+.comm-main{
+  margin-top: .5rem !important;
+  max-width: 1100px;
+  margin:0 auto;
+  min-height: calc(100vh - 3.2rem - 5rem - .5rem);
+  /* height: 3.2 footer: 5 self : margin-top .5 */
+}
+
+.list-title{
+  font-size:1.4rem;
+  padding: 0 0.5rem;
+  margin-top: 1.3rem;
+  font-family: HYLMT;
+  text-decoration: none;
+}
+.list-title a {
+  color: #ef8585;
+}
+.list-context{
+  color:#777;
+  padding:.5rem;
+}
+.list-icon{
+  padding:.5rem 0;
+  color:#999;
+}
+.list-icon span{
+  display: inline-block;
+  padding: 0 10px;
+}
+.list-icon img{
+  width: 30px;
+  margin-right: .3rem !important;
+}
+.list-header{
+  font-size: 1.1rem;
+  padding-left:1rem;
+}
+.list-go{
+  text-align: right;
+  margin-right: 20px;
+  color:#bbb;
+}
+.bbd-img{
+  border-radius: 4px;
+  width: 100%;
+}
+.bbd-title{
+  margin-top:10px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.bbd-zi{
+  color: #888;
+}
+.ant-card-body{
+  padding:10px;
+}
+
+.footer-div{
+  background: url(../static/images/footer.png) no-repeat;
+  background-size: 100% 900%;
+  background-position: 0 11%;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  line-height: 1.6;
+  font-size: 14px;
+  padding: 7px 0;
+  color: #444141;
+  background-color: #232323;
+  height: 5rem;
+}
+
+/* detail */
+
+.bread-div{
+  padding: .5rem;
+  border-bottom:1px solid #eee;
+  background-color: #e1f0ff;
+}
+.detailed-title{
+  font-size: 1.5rem;
+  text-align: center;
+  padding: .3rem;
+  color: #ef8585;
+}
+.center{
+  text-align: center;
+}
+.detailed-content{
+  padding: 1.3rem;
+  font-size: 1rem;
+}
+pre{
+  display: block;
+  background-color:#f3f3f3;
+   padding: .5rem !important;
+   overflow-y: auto;
+   font-weight: 300;
+   font-family: Menlo, monospace;
+   border-radius: .3rem;
+}
+pre{
+  background-color: #283646 !important;
+}
+pre >code{
+  border:0px !important;
+  background-color: #283646 !important;
+  color:#FFF;
+
+}
+code {
+  display: inline-block ;
+  background-color:#f3f3f3;
+  border:1px solid #fdb9cc;
+  border-radius:3px;
+  font-size: 12px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color:#4f4f4f;
+  margin: 0px 3px;
+
+}
+
+.title-anchor{
+  color:#888 !important;
+  padding:4px !important;
+  margin: 0rem !important;
+  height: auto !important;
+  line-height: 1.2rem !important;
+  font-size: .7rem !important;
+  border-bottom: 1px dashed #eee;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.active{
+  color:rgb(30, 144, 255) !important;
+}
+.nav-title{
+  text-align: center;
+  color: #888;
+  border-bottom: 1px solid rgb(30, 144, 255);
+  font-size: 1.2rem;
+  padding-bottom: .8rem;
+
+}
+.article-menu{
+  font-size:12px;
+}
+iframe{
+  height: 34rem;
+}
+.detailed-content  img{
+  width: 100%;
+  border:1px solid #f3f3f3;
+}
+.title-level3{
+  display: none !important;
+}
+.ant-anchor-link-title{
+  font-size: 12px !important;
+}
+.ant-anchor-wrapper{
+  padding: 5px !important;
+}
