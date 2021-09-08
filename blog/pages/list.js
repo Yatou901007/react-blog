@@ -1,20 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Head from 'next/head'
-import { Row, Col, List, Breadcrumb } from 'antd';
+import Link from 'next/link'
+import { Row, Col, List, Affix, Breadcrumb } from 'antd';
 import { ClockCircleOutlined, FileDoneOutlined, EyeOutlined } from '@ant-design/icons'
 import Header from '../components/Header'
 import Author from '../components/Author'
 import Footer from '../components/Footer'
+import marked from 'marked'
+import hljs from "highlight.js";
+import 'highlight.js/styles/monokai-sublime.css';
 
-export default function MyList() {
-  const [mylist, setMylist] = useState(
-    [
-      {title:'50元加入小密圈 胖哥带你学一年',context:'50元跟着胖哥学一年，掌握程序人的学习方法。 也许你刚步入IT行业，也许你遇到了成长瓶颈，也许你不知道该学习什么知识，也许你不会融入团队，也许...........有些时候你陷入彷徨。 你需要一个强力的队友，你需要一个资深老手，你需要一个随时可以帮助你的人，你更需要一个陪你加速前行的。 我在这个行业走了12年，从后端、前端到移动端都从事过，从中走了很多坑，但我有一套适合程序员的学习方法。 如果你愿意，我将带着你在这个程序行业加速奔跑。分享我学习的方法，所学的内容和一切我的资料。 你遇到的职业问题，我也会第一时间给你解答。我需要先感谢一直帮助我的小伙伴，这个博客能产出300多集免费视频，其中有他们的鼎力支持，如果没有他们的支持和鼓励，我可能早都放弃了。 原来我博客只是录制免费视频，然后求30元的打赏。 每次打赏我都会觉得内疚，因为我并没有给你特殊的照顾，也没能从实质上帮助过你。 直到朋友给我介绍了知识星球，它可以专享加入，可以分享知识，可以解答问题，所以我如获珍宝，决定把打赏环节改为知识服务。我定价50元每年，为什么是50元每年？因为这是知识星球允许的最低收费了。'},
-      {title:'React实战视频教程-技术胖Blog开发(更新04集)',context:'50元跟着胖哥学一年，掌握程序人的学习方法。 也许你刚步入IT行业，也许你遇到了成长瓶颈，也许你不知道该学习什么知识，也许你不会融入团队，也许...........有些时候你陷入彷徨。 你需要一个强力的队友，你需要一个资深老手，你需要一个随时可以帮助你的人，你更需要一个陪你加速前行的。 我在这个行业走了12年，从后端、前端到移动端都从事过，从中走了很多坑，但我有一套适合程序员的学习方法。 如果你愿意，我将带着你在这个程序行业加速奔跑。分享我学习的方法，所学的内容和一切我的资料。 你遇到的职业问题，我也会第一时间给你解答。我需要先感谢一直帮助我的小伙伴，这个博客能产出300多集免费视频，其中有他们的鼎力支持，如果没有他们的支持和鼓励，我可能早都放弃了。 原来我博客只是录制免费视频，然后求30元的打赏。 每次打赏我都会觉得内疚，因为我并没有给你特殊的照顾，也没能从实质上帮助过你。 直到朋友给我介绍了知识星球，它可以专享加入，可以分享知识，可以解答问题，所以我如获珍宝，决定把打赏环节改为知识服务。我定价50元每年，为什么是50元每年？因为这是知识星球允许的最低收费了。'},
-      {title:'React服务端渲染框架Next.js入门(共12集)',context:'50元跟着胖哥学一年，掌握程序人的学习方法。 也许你刚步入IT行业，也许你遇到了成长瓶颈，也许你不知道该学习什么知识，也许你不会融入团队，也许...........有些时候你陷入彷徨。 你需要一个强力的队友，你需要一个资深老手，你需要一个随时可以帮助你的人，你更需要一个陪你加速前行的。 我在这个行业走了12年，从后端、前端到移动端都从事过，从中走了很多坑，但我有一套适合程序员的学习方法。 如果你愿意，我将带着你在这个程序行业加速奔跑。分享我学习的方法，所学的内容和一切我的资料。 你遇到的职业问题，我也会第一时间给你解答。我需要先感谢一直帮助我的小伙伴，这个博客能产出300多集免费视频，其中有他们的鼎力支持，如果没有他们的支持和鼓励，我可能早都放弃了。 原来我博客只是录制免费视频，然后求30元的打赏。 每次打赏我都会觉得内疚，因为我并没有给你特殊的照顾，也没能从实质上帮助过你。 直到朋友给我介绍了知识星球，它可以专享加入，可以分享知识，可以解答问题，所以我如获珍宝，决定把打赏环节改为知识服务。我定价50元每年，为什么是50元每年？因为这是知识星球允许的最低收费了。'},
-      {title:'React Hooks 免费视频教程(共11集)',context:'50元跟着胖哥学一年，掌握程序人的学习方法。 也许你刚步入IT行业，也许你遇到了成长瓶颈，也许你不知道该学习什么知识，也许你不会融入团队，也许...........有些时候你陷入彷徨。 你需要一个强力的队友，你需要一个资深老手，你需要一个随时可以帮助你的人，你更需要一个陪你加速前行的。 我在这个行业走了12年，从后端、前端到移动端都从事过，从中走了很多坑，但我有一套适合程序员的学习方法。 如果你愿意，我将带着你在这个程序行业加速奔跑。分享我学习的方法，所学的内容和一切我的资料。 你遇到的职业问题，我也会第一时间给你解答。我需要先感谢一直帮助我的小伙伴，这个博客能产出300多集免费视频，其中有他们的鼎力支持，如果没有他们的支持和鼓励，我可能早都放弃了。 原来我博客只是录制免费视频，然后求30元的打赏。 每次打赏我都会觉得内疚，因为我并没有给你特殊的照顾，也没能从实质上帮助过你。 直到朋友给我介绍了知识星球，它可以专享加入，可以分享知识，可以解答问题，所以我如获珍宝，决定把打赏环节改为知识服务。我定价50元每年，为什么是50元每年？因为这是知识星球允许的最低收费了。'},
-    ]
-  )
+import servicePath  from '../config/apiUrl'
+
+const MyList = (list) => {
+  const [ mylist , setMylist ] = useState(list.data);
+  useEffect(()=>{
+    setMylist(list.data)
+  })
+  const renderer = new marked.Renderer();
+  // 文章设置
+  marked.setOptions({
+    renderer: renderer, // 这个是必须填写的，你可以通过自定义的Renderer渲染出自定义的格式
+    gfm: true, // 启动类似Github样式的Markdown,填写true或者false
+    pedantic: false,// 只解析符合Markdown定义的，不修正Markdown的错误。填写true或者false
+    sanitize: false, // 原始输出，忽略HTML标签，这个作为一个开发人员，一定要写false
+    tables: true,// 支持Github形式的表格，必须打开gfm选项
+    breaks: false,// 支持Github换行符，必须打开gfm选项，填写true或者false
+    smartLists: true,// 优化列表输出，这个填写ture之后，你的样式会好看很多，所以建议设置成ture
+    smartypants: false,// 
+    highlight: function (code) { // 高亮显示规则 ，这里我们将使用highlight.js来完成
+      return hljs.highlightAuto(code).value;
+    }
+  }); 
   return (
     <div>
       <Head>
@@ -34,24 +52,39 @@ export default function MyList() {
               dataSource={mylist}
               renderItem={item => (
                 <List.Item>
-                  <h1 className="list-title">{item.title}</h1>
+                  <h1 className="list-title">
+                    <Link href={{pathname:'/detailed',query:{id:item.id}}}>
+                      {item.title}
+                    </Link>
+                  </h1>
                   <div className="list-icon">
-                    <span><ClockCircleOutlined /> 2021-08-30</span>
-                    <span><FileDoneOutlined /> 小本本</span>
-                    <span><EyeOutlined /> 111人</span>
+                    <span><ClockCircleOutlined /> {item.add_time}</span>
+                    <span><FileDoneOutlined /> {item.typeName}</span>
+                    <span><EyeOutlined /> {item.view_count}人</span>
                   </div>
-                  <div className="list-context">{item.context}</div>  
+                  <div className="list-context"
+                        dangerouslySetInnerHTML={{__html:marked(item.introduce)}}
+                  ></div>
                 </List.Item>
               )}
             /> 
           </Col>
           <Col xs={0} sm={0} md={6}>
-            <div className="comm-right">
-              <Author />
-            </div>
+            <Affix offsetTop={10}>
+              <div className="comm-user">
+                <Author />
+              </div>
+            </Affix>
           </Col>
       </Row>
       <Footer/>
     </div>
   )
 }
+MyList.getInitialProps = async (context) => {
+  const id = context.query.id
+  const result = await axios(servicePath.articlesById + id)
+  return result.data;
+}
+
+export default MyList;

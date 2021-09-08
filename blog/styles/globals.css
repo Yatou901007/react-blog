@@ -7,7 +7,56 @@ body{
 abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, html, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
   cursor: url(../static/images/cursor.ico), auto;
 }
+.fixed-bottom, .fixed-top {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+.fixed-top {
+  top: 0;
+  transition: all 0.3s linear;
+  will-change: top;
+}
+.fixed-bottom {
+  bottom: 0;
+  transition: all 0.3s linear;
+  will-change: bottom;
+}
 
+#screen_bg {
+  background: url(../static/images/banner.jpg) no-repeat;
+  background-size: cover;
+  background-position: 0 -180px;
+  height: 420px;
+  margin-bottom: 120px;
+}
+#screen_bg .h-information { 
+  width: 40%;
+  margin: auto;
+  position: relative;
+  top: 280px;
+  font-size: 16px;
+  opacity: .98;
+  height: 230px;
+  background-color: hsla(0,0%,100%,.5);
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+}
+#screen_bg .h-information h2 {
+  margin: 10px;
+  font-size: 24px;
+  color: #f39999;
+  font-family: HYYYT;
+  letter-spacing: 1px;
+}
+#screen_bg .h-information img{
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+}
 .comm-left{
   background-color: #FFF;
   padding:.3rem;
@@ -15,7 +64,7 @@ abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body,
   border:1px solid #eee;
   margin-bottom: 16px;
 }
-.comm-right{
+.comm-user{
   background-color: #FFF;
   margin-left: .5rem;
   padding:.3rem;
@@ -47,9 +96,24 @@ abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body,
 .list-title a {
   color: #ef8585;
 }
-.list-context{
-  color:#777;
-  padding:.5rem;
+.fold {
+  position: absolute;
+  z-index: 10;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #eff6fa;
+  color: #0c5897;
+  font-size: 12px;
+  line-height: 1;
+  right: 20px;
+  bottom: 10px;
+  padding: 5px;
+}
+.fix-fold {
+  right: 296px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(129, 186, 235);
+  position: fixed;
 }
 .list-icon{
   padding:.5rem 0;
@@ -90,9 +154,9 @@ abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body,
 }
 
 .footer-div{
-  background: url(../static/images/footer.png) no-repeat;
+  background: url(../static/images/banner.jpg) no-repeat;
   background-size: 100% 900%;
-  background-position: 0 11%;
+  background-position: 0 70%;
   position: relative;
   left: 0;
   bottom: 0;
@@ -180,6 +244,10 @@ code {
   padding-bottom: .8rem;
 
 }
+.detailed-nav  .ant-anchor-link .ant-anchor-link {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 .article-menu{
   font-size:12px;
 }
@@ -194,8 +262,44 @@ iframe{
   display: none !important;
 }
 .ant-anchor-link-title{
-  font-size: 12px !important;
+  font-size: 14px !important;
 }
 .ant-anchor-wrapper{
   padding: 5px !important;
+  max-height: calc(100vh - 10rem) !important;
+}
+
+.foldcontent-panel {
+  box-sizing: border-box;
+  position: relative;
+  margin-bottom: 1.2rem;
+  color: #666;
+  line-height: 2.5;
+  border: 1px solid #eee;
+  box-shadow: 5px 6px 5px #ccc;
+}
+
+.to-top {
+  position: fixed;
+  bottom: 120px;
+  right: 35px;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: url('../static/images/toTop.png') no-repeat;
+  background-size: 100%;
+  cursor: pointer;
+}
+.to-top:hover {
+  background: url('../static/images/toTopHover.png') no-repeat;
+  background-size: 100%;
+}
+.to-top:after {
+  content: '返回顶部';
+  height: 20px;
+  width: 60px;
+  position: absolute;
+  bottom: -20px;
+  left: -8px;
+  color: rgba(0,0,0, 0.65);
 }
