@@ -4,6 +4,7 @@ import { Row, Col, Affix } from 'antd';
 import { ClockCircleOutlined, FileDoneOutlined, EyeOutlined } from '@ant-design/icons'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import ScrollTop from '../components/ScrollTop/index.tsx'
 import Image from 'next/image'
 import write from '../static/images/write.gif'
 import marked from 'marked'
@@ -74,6 +75,7 @@ const Detailed = (props) => {
           </Col>
       </Row>
       <Footer/>
+      <ScrollTop />
     </div>
   )
 }

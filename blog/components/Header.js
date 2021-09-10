@@ -18,10 +18,11 @@ const Header = (props) => {
     const handleScroll = useCallback(() => {
         // 滚动条滚动时，距离顶部的距离
         const scrollheight = document.documentElement.scrollTop || document.body.scrollTop;
+        const current = headerRef.current;
         if (scrollheight >= 420) {
-            headerRef.current.style.top = '-3.2rem'
+            current && (current.style.top = '-3.2rem')
         } else {
-            headerRef.current.style.top = '0'
+            current && (current.style.top = '0')
         }
     }, []);
     useEffect(() => {

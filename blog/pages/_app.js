@@ -1,8 +1,7 @@
 import 'antd/dist/antd.css'
 import '../styles/globals.css'
+import showBgCanvas from '../static/js/canvas.js'
 import React , { useState, useEffect } from 'react'
-
-
   
 function MyApp({ Component, pageProps }) {
   useEffect(()=>{
@@ -16,8 +15,9 @@ function MyApp({ Component, pageProps }) {
           document.title = '吖小胖的Blog'
         },3000)
       }
-      }
-    );
+    });
+    // 背景canvas显示
+    showBgCanvas()
   },[])
   return <Component {...pageProps} />
 }
