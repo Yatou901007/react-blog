@@ -46,6 +46,7 @@ export default function () {
         g2d.closePath();
         r -= pi / -50;
         g2d.fillStyle = '#'+(cos(r)*127+128<<16 | cos(r+pi/3)*127+128<<8 | cos(r+pi/3*2)*127+128).toString(16);
+        // console.log('#'+(cos(r)*127+128<<16 | cos(r+pi/3)*127+128<<8 | cos(r+pi/3*2)*127+128).toString(16))
         g2d.fill();
         q[0] = q[1];
         q[1] = {x: k, y: n};

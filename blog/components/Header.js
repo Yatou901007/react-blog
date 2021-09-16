@@ -14,6 +14,7 @@ const Header = (props) => {
     const [navArray , setNavArray] = useState([])
     const [currentId, setCurrentId] = useState('0')
     const headerRef = useRef();
+    let enabled = true
     // 滚动条监听导航滑动消失与出现
     const handleScroll = useCallback(() => {
         // 滚动条滚动时，距离顶部的距离
@@ -26,7 +27,15 @@ const Header = (props) => {
         }
     }, []);
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', () => {
+            if (enabled) {
+                enabled = false;
+                window.requestAnimationFrame(handleScroll);
+                // 每隔50秒触发一次，提高性能
+                setTimeout(() => enabled = true, 50);
+            }
+        });
+        return () => window.removeEventListener('scroll', handleScroll);
     }, [handleScroll]);
 
     // 初始化数据

@@ -2,6 +2,7 @@ import 'antd/dist/antd.css'
 import '../styles/globals.css'
 import showBgCanvas from '../static/js/canvas.js'
 import React , { useState, useEffect } from 'react'
+import ScrollTop from '../components/ScrollTop/index.tsx'
   
 function MyApp({ Component, pageProps }) {
   useEffect(()=>{
@@ -19,7 +20,12 @@ function MyApp({ Component, pageProps }) {
     // 背景canvas显示
     showBgCanvas()
   },[])
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Component {...pageProps} />
+      <ScrollTop />
+    </>
+  )
 }
 
 export default MyApp

@@ -14,7 +14,7 @@ export default function ScrollToTop() {
   };
 
   useEffect(() => {
-    // Button is displayed after scrolling for 500 pixels
+    let enabled = true
     const toggleVisibility = () => {
       if (window.pageYOffset > 500) {
         setIsVisible(true);
@@ -23,7 +23,14 @@ export default function ScrollToTop() {
       }
     };
 
-    window.addEventListener('scroll', toggleVisibility);
+    window.addEventListener('scroll', () => {
+      if (enabled) {
+        enabled = false;
+        window.requestAnimationFrame(toggleVisibility);
+        // 每隔50秒触发一次，提高性能
+        setTimeout(() => enabled = true, 50);
+      }
+    });
 
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);

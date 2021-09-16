@@ -7,7 +7,6 @@ import { ClockCircleOutlined, FileDoneOutlined, EyeOutlined } from '@ant-design/
 import Header from '../components/Header'
 import Author from '../components/Author'
 import Footer from '../components/Footer'
-import ScrollTop from '../components/ScrollTop/index.tsx'
 import marked from 'marked'
 import hljs from "highlight.js";
 import 'highlight.js/styles/monokai-sublime.css';
@@ -79,7 +78,6 @@ const MyList = (list) => {
           </Col>
       </Row>
       <Footer/>
-      <ScrollTop />
     </div>
   )
 }

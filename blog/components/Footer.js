@@ -1,4 +1,4 @@
-const Footer = () => {
+export default function Footer () {
     return (
         <div className="footer-div">
             <div>©2021  Powered by React + Node + Ant Desgin.</div>
@@ -7,5 +7,3 @@ const Footer = () => {
         </div>
     )
 }
-
-export default Footer
